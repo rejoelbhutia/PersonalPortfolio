@@ -8,7 +8,9 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+app.use(cors({
+  origin : 'http://myportfoliobucket69.s3-website.eu-north-1.amazonaws.com'
+}));
 app.use(express.json());
 
 app.use('/api/contact', contactRoutes);

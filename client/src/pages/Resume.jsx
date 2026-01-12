@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Briefcase, GraduationCap, Calendar, Download, Loader2, Check } from 'lucide-react';
 import EmptyState from '../components/EmptyState'; 
 
+
 const Resume = () => {
   const [downloadStatus, setDownloadStatus] = useState('idle'); // 'idle' | 'downloading' | 'completed'
 
@@ -14,7 +15,7 @@ const Resume = () => {
     setTimeout(() => {
         // 2. Trigger the actual download programmatically
         const link = document.createElement('a');
-        link.href = '../assets/RejoelCV.pdf';
+        link.href = '/RejoelCV.pdf';
         link.download = 'RejoelCV.pdf';
         document.body.appendChild(link);
         link.click();
