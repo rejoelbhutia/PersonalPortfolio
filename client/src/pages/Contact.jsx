@@ -38,7 +38,7 @@ const Contact = () => {
     setStatus({ type: '', message: '' });
 
     try {
-      const response = await fetch(`http://51.21.255.245:5000/api/contact`, {
+      const response = await fetch(`https://og3l29x9fa.execute-api.ap-south-1.amazonaws.com/default/portfolio_backend`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
