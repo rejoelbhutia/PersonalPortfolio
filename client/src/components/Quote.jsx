@@ -7,14 +7,13 @@ export default function Quote() {
     useEffect(() => {
         const getQuote = async () => {
             try {
-                // Determine API URL based on environment
-                const isDev = import.meta.env.DEV;
-                const baseUrl = isDev ? "http://localhost:5000" : (import.meta.env.VITE_API_URL || "http://localhost:5000");
 
-                // Ensure we don't have double slashes if baseUrl ends with /
-                const endpoint = baseUrl.endsWith('/') ? `${baseUrl}api/quotes` : `${baseUrl}/api/quotes`;
 
-                const response = await fetch(endpoint);
+
+
+
+                const response = await fetch("https://1nthp3keje.execute-api.ap-south-1.amazonaws.com/api/quotes");
+                // const response = await fetch("http://localhost:3000/api/quotes");
                 if (!response.ok) {
                     throw new Error("Bad response: " + response.status)
                 }
