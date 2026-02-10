@@ -8,6 +8,7 @@ const Navbar = ({ onNavClick, onProfileClick }) => {
     { path: '/resume', label: 'Resume' },
     { path: '/portfolio', label: 'Portfolio' },
     { path: '/blog', label: 'Blog' },
+    { path: '/certifications', label: 'Certifications' },
     { path: '/contact', label: 'Contact' },
   ];
 

@@ -1,115 +1,116 @@
 import React, { useState } from 'react';
-import { Eye, Frown } from 'lucide-react';
+import { Eye, ExternalLink, Image as ImageIcon } from 'lucide-react';
 import EmptyState from '../components/EmptyState';
+import ScrollReveal from '../components/ScrollReveal';
 
 const Portfolio = () => {
-  const [activeCategory, setActiveCategory] = useState('All');
+  const [activeCategory, setActiveCategory] = useState("All");
 
-  const categories = ['All', 'Web Design', 'Applications', 'Web Development'];
+  const categories = ["All", "Web Design", "Applications", "Web Development"];
 
-  const projects = [
+  const portfolioItems = [
     // {
     //   id: 1,
-    //   title: "E-Commerce Platform",
-    //   category: "Applications",
-    //   image: "https://via.placeholder.com/600x400?text=E-Commerce",
-    //   description: "A full-featured shopping platform with cart, payments, and dashboard."
+    //   title: "Finance App",
+    //   category: "Web Development",
+    //   image: "https://via.placeholder.com/400x300",
+    //   link: "#"
     // },
     // {
     //   id: 2,
-    //   title: "Task Management App",
-    //   category: "Applications",
-    //   image: "https://via.placeholder.com/600x400?text=Task+App",
-    //   description: "Collaborative tool for teams to track progress and manage tasks."
+    //   title: "Orizon UI Kit",
+    //   category: "Web Design",
+    //   image: "https://via.placeholder.com/400x300",
+    //   link: "#"
     // },
     // {
     //   id: 3,
-    //   title: "Finance Dashboard",
-    //   category: "Web Development",
-    //   image: "https://via.placeholder.com/600x400?text=Finance",
-    //   description: "Real-time analytics dashboard for monitoring financial data."
+    //   title: "Fundo App",
+    //   category: "Applications",
+    //   image: "https://via.placeholder.com/400x300",
+    //   link: "#"
     // },
     // {
     //   id: 4,
-    //   title: "Social Media App",
+    //   title: "Brawlhalla",
     //   category: "Applications",
-    //   image: "https://via.placeholder.com/600x400?text=Social+App",
-    //   description: "Connect with friends and share updates in real-time."
-    // },
-    //  {
-    //   id: 5,
-    //   title: "Modern Portfolio",
-    //   category: "Web Design",
-    //   image: "https://via.placeholder.com/600x400?text=Portfolio",
-    //   description: "A sleek, dark-themed portfolio website with animations."
-    // },
-    // {
-    //   id: 6,
-    //   title: "Travel Booking",
-    //   category: "Web Development",
-    //   image: "https://via.placeholder.com/600x400?text=Travel",
-    //   description: "Booking system for flights and hotels with search functionality."
+    //   image: "https://via.placeholder.com/400x300",
+    //   link: "#"
     // }
   ];
 
-  const filteredProjects = activeCategory === 'All' 
-    ? projects 
-    : projects.filter(project => project.category === activeCategory);
+  const filteredItems = activeCategory === "All"
+    ? portfolioItems
+    : portfolioItems.filter(item => item.category === activeCategory);
 
   return (
     <section>
-      <h2 className="text-3xl font-bold text-white mb-8 border-b border-border pb-4">Portfolio</h2>
-      
-      {/* Category Tabs */}
-      <div className="flex flex-wrap gap-4 mb-8">
-          {categories.map((category) => (
-              <button
-                  key={category}
-                  onClick={() => setActiveCategory(category)}
-                  className={`text-sm md:text-base font-medium transition-colors hover:text-primary ${
-                      activeCategory === category ? 'text-primary' : 'text-muted'
-                  }`}
-              >
-                  {category}
-              </button>
-          ))}
-      </div>
-      
-      {/* Projects Grid */}
-      { projects.length > 0 ? (
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredProjects.map((project) => (
-          <div key={project.id} className="group relative rounded-xl overflow-hidden cursor-pointer">
-            
-            {/* Image */}
-            <div className="aspect-[4/3] overflow-hidden">
-                <img 
-                    src={project.image} 
-                    alt={project.title} 
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-            </div>
+      <ScrollReveal>
+        <div className="flex items-center justify-between mb-8 border-b border-border pb-4">
+          <h2 className="text-3xl font-bold text-white">Portfolio</h2>
+        </div>
+      </ScrollReveal>
 
-            {/* Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                     <span className="text-primary text-xs font-bold uppercase tracking-wider mb-1 block">{project.category}</span>
-                     <h3 className="text-lg font-bold text-white mb-2">{project.title}</h3>
-                     <div className="flex items-center gap-2 text-primary opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-300">
-                         <Eye size={16} />
-                         <span className="text-sm font-medium">View Project</span>
-                     </div>
+      {/* Filter Categories */}
+      <ScrollReveal delay={100}>
+        <ul className="flex flex-wrap gap-4 mb-8">
+          {categories.map((category) => (
+            <li key={category}>
+              <button
+                onClick={() => setActiveCategory(category)}
+                className={`
+                                text-sm font-medium transition-colors hover:text-primary 
+                                ${activeCategory === category ? 'text-primary' : 'text-muted'}
+                            `}
+              >
+                {category}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </ScrollReveal>
+
+      {/* Projects Grid */}
+      <ScrollReveal delay={200}>
+        {filteredItems.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredItems.map((item) => (
+              <div key={item.id} className="group relative rounded-xl overflow-hidden cursor-pointer">
+                <div className="aspect-[4/3] w-full">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
                 </div>
-            </div>
-            
+
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+                  <div className="p-3 bg-sidebar rounded-xl text-primary hover:bg-neutral-800 transition-colors">
+                    <Eye size={20} />
+                  </div>
+                  <a href={item.link} className="p-3 bg-sidebar rounded-xl text-primary hover:bg-neutral-800 transition-colors">
+                    <ExternalLink size={20} />
+                  </a>
+                </div>
+
+                <div className="absolute  inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/90 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                  <h4 className="text-white font-bold mb-1">{item.title}</h4>
+                  <span className="text-primary text-sm">{item.category}</span>
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-      ) : (<EmptyState icon={Frown} title={"Project Coming Soon"} description={"Exciting Project in development. Check soon for updates."}/>)
-    }
+        ) : (
+          <EmptyState
+            icon={ImageIcon}
+            title="Work in Progress"
+            description="I'm currently creating new projects to showcase here. Stay tuned for updates!"
+          />
+        )}
+      </ScrollReveal>
     </section>
   );
 };
 
 export default Portfolio;
-  

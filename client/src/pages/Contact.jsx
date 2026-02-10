@@ -3,6 +3,7 @@ import { Send, MapPin, Phone, Mail } from 'lucide-react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
+import ScrollReveal from '../components/ScrollReveal';
 
 // Fix for default leafet markers in React
 import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
@@ -38,7 +39,7 @@ const Contact = () => {
     setStatus({ type: '', message: '' });
 
     try {
-      const response = await fetch(`https://og3l29x9fa.execute-api.ap-south-1.amazonaws.com/default/portfolio_backend`, {
+      const response = await fetch(`https://1nthp3keje.execute-api.ap-south-1.amazonaws.com/api/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -63,78 +64,84 @@ const Contact = () => {
 
   return (
     <section>
-      <h2 className="text-3xl font-bold text-white mb-8 border-b border-border pb-4">Contact Me</h2>
+      <ScrollReveal>
+        <h2 className="text-3xl font-bold text-white mb-8 border-b border-border pb-4">Contact Me</h2>
+      </ScrollReveal>
 
       {/* Map Section */}
-      <div className="mb-8 md:mb-12 h-[250px] md:h-[400px] rounded-xl overflow-hidden border border-border z-0 relative">
-        <MapContainer center={position} zoom={13} scrollWheelZoom={false} style={{ height: '100%', width: '100%' }}>
-          <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
-          <Marker position={position}>
-            <Popup>
-              I am here! <br /> Come say hello.
-            </Popup>
-          </Marker>
-        </MapContainer>
-      </div>
+      <ScrollReveal delay={100}>
+        <div className="mb-8 md:mb-12 h-[250px] md:h-[400px] rounded-xl overflow-hidden border border-border z-0 relative">
+          <MapContainer center={position} zoom={13} scrollWheelZoom={false} style={{ height: '100%', width: '100%' }}>
+            <TileLayer
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            <Marker position={position}>
+              <Popup>
+                I am here! <br /> Come say hello.
+              </Popup>
+            </Marker>
+          </MapContainer>
+        </div>
+      </ScrollReveal>
 
       <div className="grid grid-cols-1 gap-8">
 
 
         {/* Contact Form */}
-        <div className="lg:col-span-2 bg-sidebar p-8 rounded-2xl border border-border">
-          <h3 className="text-xl font-bold text-white mb-6">Send a Message</h3>
+        <ScrollReveal delay={200}>
+          <div className="lg:col-span-2 bg-sidebar p-8 rounded-2xl border border-border">
+            <h3 className="text-xl font-bold text-white mb-6">Send a Message</h3>
 
-          {status.message && (
-            <div className={`p-4 rounded-lg mb-6 ${status.type === 'success' ? 'bg-green-500/10 text-green-500' : 'bg-red-500/10 text-red-500'}`}>
-              {status.message}
-            </div>
-          )}
+            {status.message && (
+              <div className={`p-4 rounded-lg mb-6 ${status.type === 'success' ? 'bg-green-500/10 text-green-500' : 'bg-red-500/10 text-red-500'}`}>
+                {status.message}
+              </div>
+            )}
 
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <input
-                type="text"
-                name="name"
-                placeholder="Full Name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="w-full bg-background border border-border rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Email Address"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="w-full bg-background border border-border rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
-              />
-            </div>
-            <div>
-              <textarea
-                name="message"
-                placeholder="Your Message"
-                rows="4"
-                value={formData.message}
-                onChange={handleChange}
-                required
-                className="w-full bg-background border border-border rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors resize-none"
-              ></textarea>
-            </div>
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full bg-primary hover:bg-blue-600 text-white font-medium py-3 px-6 rounded-lg transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              <Send size={18} />
-              {loading ? 'Sending...' : 'Send Message'}
-            </button>
-          </form>
-        </div>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Full Name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="w-full bg-background border border-border rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email Address"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="w-full bg-background border border-border rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
+                />
+              </div>
+              <div>
+                <textarea
+                  name="message"
+                  placeholder="Your Message"
+                  rows="4"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  className="w-full bg-background border border-border rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors resize-none"
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full bg-primary hover:bg-blue-600 text-white font-medium py-3 px-6 rounded-lg transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                <Send size={18} />
+                {loading ? 'Sending...' : 'Send Message'}
+              </button>
+            </form>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );
