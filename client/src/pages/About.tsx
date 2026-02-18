@@ -119,13 +119,10 @@ const About: React.FC = () => {
                     <h2 className="text-3xl font-bold text-white dark:text-white text-light-text mb-8 border-b border-border dark:border-border border-light-border pb-4">About Me</h2>
                     <div className="text-muted dark:text-muted text-light-muted leading-relaxed space-y-4">
                         <p>
-                            I'm a Web Developer and UI/UX Designer from Yangsum, Sikkim working in web development and print media.
-                            I enjoy turning complex problems into simple, beautiful and intuitive designs.
+                            I’m a Full Stack Developer based in Yangsum, West Sikkim, specializing in web development. I enjoy transforming complex problems into simple, elegant, and intuitive designs.
                         </p>
                         <p>
-                            My job is to build your website so that it is functional and user-friendly but at the same time attractive.
-                            Moreover, I add personal touch to your product and make sure that is eye-catching and easy to use.
-                            My aim is to bring across your message and identity in the most creative way. I created web design.
+                            I focus on building websites that are not only functional and user-friendly but also visually engaging. I bring a personal touch to every project, ensuring it is both eye-catching and easy to navigate. My goal is to communicate your message and brand identity in the most creative and effective way. I continuously enhance my skills in full-stack development, DevOps practices, and agentic AI to deliver cutting-edge solutions
                         </p>
                     </div>
                 </header>

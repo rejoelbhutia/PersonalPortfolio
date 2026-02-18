@@ -18,11 +18,18 @@ const Sidebar = () => {
           />
         </div>
 
-        <h1 className="text-3xl font-bold text-white dark:text-white text-light-text mb-3">Rejeol Bhutia</h1>
+        <h1 className="text-3xl font-bold text-white dark:text-white text-light-text mb-3">Rejoel Bhutia</h1>
 
 
         <div className="text-center px-3 py-3 rounded-xl bg-neutral-800 dark:bg-neutral-800 bg-neutral-200">
           <p className="text-sm text-gray-300 dark:text-gray-300 text-gray-700 font-medium">Full Stack Developer</p>
+        </div>
+
+        <div className="text-center px-3 py-3 rounded-xl bg-neutral-800 dark:bg-neutral-800 bg-neutral-200">
+          <p className="text-sm text-gray-300 dark:text-gray-300 text-gray-700 font-medium">AI tools</p>
+        </div>
+        <div className="text-center px-3 py-3 rounded-xl bg-neutral-800 dark:bg-neutral-800 bg-neutral-200">
+          <p className="text-sm text-gray-300 dark:text-gray-300 text-gray-700 font-medium">Learning DevOps</p>
         </div>
       </div>
 

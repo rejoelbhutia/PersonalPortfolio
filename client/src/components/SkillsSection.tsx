@@ -30,9 +30,9 @@ const SkillsSection: React.FC = () => {
             title: 'Frontend Development',
             icon: Code2,
             skills: [
-                { name: "React", level: 50 },
-                { name: "JavaScript", level: 70 },
-                { name: "Tailwind CSS", level: 50 },
+                { name: "React", level: 70 },
+                { name: "JavaScript", level: 80 },
+                { name: "Tailwind CSS", level: 70 },
                 { name: "HTML5 / CSS3", level: 95 },
             ]
         },
@@ -44,7 +44,7 @@ const SkillsSection: React.FC = () => {
                 { name: "Node.js / Express", level: 65 },
                 { name: "PostgreSQL / MongoDB", level: 50 },
                 { name: "REST APIs", level: 58 },
-                { name: "Authentication & Security", level: 32 },
+                { name: "Authentication & Security", level: 50 },
             ]
         },
         {
@@ -63,7 +63,7 @@ const SkillsSection: React.FC = () => {
             title: 'Others',
             icon: Blocks,
             skills: [
-                { name: "UI/UX Design", level: 75 },
+                { name: "UI/UX Design", level: 50 },
                 { name: "Responsive Design", level: 62 },
             ]
         }
