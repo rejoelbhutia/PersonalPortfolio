@@ -24,8 +24,17 @@ export default {
             },
             fontFamily: {
                 message: ['Inter', 'sans-serif'],
-            }
+            },
+             pulseScale: {
+          '0%, 100%': { transform: 'scale(1)' },
+          '50%': { transform: 'scale(1.1)' }, // grows 10%
         },
-    },
+      },
+      animation: {
+        'pulse-scale': 'pulseScale 4s ease-in-out infinite', // slow and smooth
+      },
+        },
+
+    
     plugins: [],
 }
